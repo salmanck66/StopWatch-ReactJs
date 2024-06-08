@@ -25,15 +25,24 @@ function App() {
   };
 
   return (
-    <>
-      <h1>Stop Watch</h1>
-      <div>{formatTime(time)}</div>
-      <div>
-        {running ? <button onClick={() => setRunning(false)}>Stop</button>:<button onClick={() => setRunning(true)}>Start</button>}
-        
-        <button onClick={() => { setTime(0); setRunning(false); }}>Reset</button>
+    <div className="stopwatch-container">
+      <h1 className="stopwatch-heading">Stop Watch</h1>
+      <div className="stopwatch-display">{formatTime(time)}</div>
+      <div className="stopwatch-controls">
+        {running ? (
+          <button onClick={() => setRunning(false)} className="stop-button">
+            Stop
+          </button>
+        ) : (
+          <button onClick={() => setRunning(true)} className="start-button">
+            Start
+          </button>
+        )}
+        <button onClick={() => { setTime(0); setRunning(false); }} className="reset-button">
+          Reset
+        </button>
       </div>
-    </>
+    </div>
   );
 }
 
